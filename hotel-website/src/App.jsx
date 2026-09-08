@@ -6,6 +6,7 @@ import Home from "./pages/Home.jsx";
 import About from "./pages/About.jsx";
 import Rooms from "./pages/Rooms.jsx";
 import Facilities from "./pages/Facilities.jsx";
+import Dining from "./pages/Dining.jsx";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -28,6 +29,7 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/rooms" element={<Rooms />} />
           <Route path="/facilities" element={<Facilities />} />
+          <Route path="/dining" element={<Dining />} />
           {/* Rooms, Facilities, Gallery, Dining, Contact, Booking land here as they're built.
               Until then, any unmatched route (including their nav links) falls back to Home
               instead of showing a blank screen. */}
