@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { Wifi, Wind, Bath, Coffee, ShieldCheck, UtensilsCrossed } from "lucide-react";
+import { Wifi, Wind, Bath, Coffee, ShieldCheck, UtensilsCrossed, LayoutGrid, List } from "lucide-react";
 import RoomCard from "../components/RoomCard";
 
 // Small scroll-reveal hook, duplicated per page rather than shared (see About.jsx / Home.jsx)
@@ -153,6 +153,7 @@ export default function Rooms() {
   const [includedRef, includedIn] = useInView();
 
   const [activeFilter, setActiveFilter] = useState("all");
+  const [viewMode, setViewMode] = useState("grid");
   const filteredRooms =
     activeFilter === "all" ? ROOMS : ROOMS.filter((r) => r.view === activeFilter);
 
@@ -190,6 +191,37 @@ export default function Rooms() {
             </button>
           ))}
         </div>
+
+        <div className="mt-6 flex justify-center">
+          <div className="inline-flex border border-espresso/20">
+            <button
+              onClick={() => setViewMode("grid")}
+              aria-pressed={viewMode === "grid"}
+              aria-label="Grid view"
+              className={`flex items-center gap-2 px-4 py-2 text-sm font-medium transition-colors ${
+                viewMode === "grid"
+                  ? "bg-espresso text-ivory"
+                  : "text-espresso-soft hover:text-espresso"
+              }`}
+            >
+              <LayoutGrid size={16} />
+              Grid
+            </button>
+            <button
+              onClick={() => setViewMode("list")}
+              aria-pressed={viewMode === "list"}
+              aria-label="List view"
+              className={`flex items-center gap-2 border-l border-espresso/20 px-4 py-2 text-sm font-medium transition-colors ${
+                viewMode === "list"
+                  ? "bg-espresso text-ivory"
+                  : "text-espresso-soft hover:text-espresso"
+              }`}
+            >
+              <List size={16} />
+              List
+            </button>
+          </div>
+        </div>
       </section>
 
       {/* ---------- Room grid ---------- */}
@@ -198,11 +230,19 @@ export default function Rooms() {
           ref={gridRef}
           className={`reveal mx-auto max-w-content ${gridIn ? "in" : ""}`}
         >
-          <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
-            {filteredRooms.map((room) => (
-              <RoomCard key={room.name} room={room} />
-            ))}
-          </div>
+          {viewMode === "grid" ? (
+            <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+              {filteredRooms.map((room) => (
+                <RoomCard key={room.name} room={room} layout="grid" />
+              ))}
+            </div>
+          ) : (
+            <div className="flex flex-col">
+              {filteredRooms.map((room) => (
+                <RoomCard key={room.name} room={room} layout="list" />
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
