@@ -4,6 +4,7 @@ import heroImage from "../assets/images/hero-palace.jpg";
 import deluxeLakeViewImage from "../assets/images/room-deluxe-lake-view.jpeg";
 import royalSuiteImage from "../assets/images/room-royal-suite.jpeg";
 import gardenPavilionImage from "../assets/images/room-garden-pavilion.jpeg";
+import hotelIntroductionImage from "../assets/images/hotel-introduction.jpeg";
 import {
   Waves,
   Sparkles,
@@ -143,12 +144,12 @@ export default function Home() {
             introIn ? "in" : ""
           }`}
         >
-          <div className="aspect-[4/5] rounded bg-biscuit-light">
-            <svg viewBox="0 0 400 500" className="h-full w-full">
-              <rect width="400" height="500" fill="#E4D3B3" />
-              <rect x="60" y="90" width="280" height="320" fill="#FBF9F5" opacity="0.5" />
-              <path d="M60,410 A140,45 0 0 1 340,410" fill="none" stroke="#8B6B44" strokeWidth="2" opacity="0.4" />
-            </svg>
+          <div className="aspect-[4/5] overflow-hidden rounded bg-biscuit-light">
+            <img
+              src={hotelIntroductionImage}
+              alt="Hotel Nanditha architecture inspired by Kandy's royal heritage"
+              className="h-full w-full object-cover"
+            />
           </div>
           <div>
             <h2 className="max-w-[14ch] text-[clamp(28px,3.4vw,40px)]">
