@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import heroImage from "../assets/images/hero-palace.jpg";
 import {
   Waves,
   Sparkles,
@@ -94,13 +95,13 @@ export default function Home() {
       {/* ---------- Hero ---------- */}
       <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-espresso px-6 pb-20 pt-40 text-center">
         <div
-          className="pointer-events-none absolute inset-0 opacity-[0.85]"
-          style={{
-            background:
-              "radial-gradient(ellipse 900px 600px at 50% 0%, rgba(201,166,113,0.16), transparent 60%)",
-          }}
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${heroImage})` }}
+          role="img"
+          aria-label="Hotel Nanditha palace above Kandy Lake"
         />
-        <p className="relative z-10 text-sm font-medium tracking-wide2 text-biscuit-light">
+        <div className="pointer-events-none absolute inset-0 bg-espresso/60" />
+        <p className="relative z-10 font-script text-2xl text-biscuit-light">
           Kandy, Sri Lanka
         </p>
         <h1 className="relative z-10 mt-5 max-w-3xl text-[clamp(38px,6vw,68px)] !text-biscuit-light">
@@ -126,33 +127,6 @@ export default function Home() {
           </Link>
         </div>
 
-        {/* Signature arch motif — the one bold visual element on the page */}
-        <div className="relative z-10 mt-16 w-full max-w-md">
-          <svg viewBox="0 0 400 460" className="w-full">
-            <defs>
-              <linearGradient id="archFill" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stopColor="#E4D3B3" />
-                <stop offset="1" stopColor="#C9A671" />
-              </linearGradient>
-            </defs>
-            {/* tiered roof suggestion */}
-            <path d="M120,40 L200,4 L280,40 L260,40 L200,20 L140,40 Z" fill="#C9A671" opacity="0.9" />
-            <path d="M100,66 L200,26 L300,66 L275,66 L200,42 L125,66 Z" fill="#C9A671" opacity="0.75" />
-            {/* ogee arch doorway */}
-            <path
-              d="M70,440 C70,300 30,220 110,160 C155,125 175,80 200,40 C225,80 245,125 290,160 C370,220 330,300 330,440 Z"
-              fill="url(#archFill)"
-            />
-            <path
-              d="M100,440 C100,310 68,240 128,185 C162,155 180,110 200,75 C220,110 238,155 272,185 C332,240 300,310 300,440 Z"
-              fill="#FBF9F5"
-              opacity="0.92"
-            />
-            {/* moonstone threshold arcs */}
-            <path d="M60,440 A140,50 0 0 1 340,440" fill="none" stroke="#8B6B44" strokeWidth="3" opacity="0.5" />
-            <path d="M85,440 A115,40 0 0 1 315,440" fill="none" stroke="#8B6B44" strokeWidth="2" opacity="0.35" />
-          </svg>
-        </div>
       </section>
 
       {/* ---------- Introduction ---------- */}

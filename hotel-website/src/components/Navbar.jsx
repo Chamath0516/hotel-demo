@@ -50,14 +50,14 @@ export default function Navbar() {
           <NavLink
             to="/"
             className={[
-              "font-display text-2xl tracking-wide2 transition-colors",
+              "font-script text-3xl tracking-wide2 drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)] transition-colors",
               solid ? "text-espresso" : "text-white",
             ].join(" ")}
           >
             Hotel Nanditha
           </NavLink>
 
-          <nav className="hidden gap-9 text-sm font-medium md:flex">
+          <nav className="hidden gap-9 text-sm font-medium drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)] md:flex">
             {NAV_LINKS.map((link) => (
               <NavLink
                 key={link.to}
@@ -79,7 +79,7 @@ export default function Navbar() {
             <NavLink
               to="/booking"
               className={[
-                "hidden rounded border px-6 py-3 text-sm font-medium transition-colors md:inline-flex",
+                "hidden rounded border px-6 py-3 text-sm font-medium drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)] transition-colors md:inline-flex",
                 solid
                   ? "border-espresso text-espresso hover:bg-espresso hover:text-ivory"
                   : "border-white/60 text-white hover:bg-white hover:text-espresso",
@@ -121,7 +121,7 @@ export default function Navbar() {
             key={link.to}
             to={link.to}
             onClick={() => setMobileOpen(false)}
-            className="font-display text-4xl font-normal text-white"
+            className="font-display text-4xl font-normal text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)]"
           >
             {link.label}
           </NavLink>
@@ -129,7 +129,7 @@ export default function Navbar() {
         <NavLink
           to="/booking"
           onClick={() => setMobileOpen(false)}
-          className="font-display text-4xl font-normal text-biscuit-light"
+          className="font-display text-4xl font-normal text-biscuit-light drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)]"
         >
           Reserve
         </NavLink>
